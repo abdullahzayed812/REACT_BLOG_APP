@@ -1,3 +1,7 @@
 export const Footer: React.FC = () => {
-  return <div>Footer</div>;
+  return (
+    <footer className="Footer">
+      <h3>Copyright reserved.</h3>
+    </footer>
+  );
 };

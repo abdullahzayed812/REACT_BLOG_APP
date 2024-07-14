@@ -1,3 +1,9 @@
+import { Feed } from "../components/Feed";
+
 export const Home: React.FC = () => {
-  return <div>Home</div>;
+  return (
+    <section className="Home">
+      <Feed />
+    </section>
+  );
 };

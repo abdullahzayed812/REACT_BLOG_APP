@@ -11,13 +11,15 @@ import { Home } from "./pages/Home";
 import { NewPost } from "./pages/NewPost";
 import { About } from "./pages/About";
 import "./index.css";
+import { Missing } from "./pages/Missing";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
-      <Route path="/about" element={<NewPost />} />
+      <Route path="/post" element={<NewPost />} />
       <Route path="/about" element={<About />} />
+      <Route path="*" element={<Missing />} />
     </Route>
   )
 );

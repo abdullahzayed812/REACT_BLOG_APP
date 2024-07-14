@@ -48,7 +48,88 @@ code {
   width: 100%;
   padding: 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #66d8f5;
+}
+
+.Header h1 {
+  font-size: 1.5rem;
+}
+
+.Footer {
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+
+.NavigationBar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #333;
+}
+
+.searchForm {
+  width: 80%;
+  padding: 1rem 0 0 0.75rem;
+}
+
+.searchForm input[type="text"] {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.searchForm label {
+  position: absolute;
+  left: -99999px;
+}
+
+.NavigationBar ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  list-style-type: none;
+  color: #fff;
+}
+
+.NavigationBar li {
+  padding: 1rem;
+}
+
+.NavigationBar li:hover,
+.NavigationBar li:focus {
+  padding: 1rem;
+}
+
+.NavigationBar li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.NavigationBar li:hover,
+.NavigationBar li:focus,
+.NavigationBar li:hover a,
+.NavigationBar li:focus a {
+  background-color: #eee;
+  color: #333;
+}
+
+.Home,
+.NewPost,
+.Post,
+.About,
+.Missing {
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fff;
 }

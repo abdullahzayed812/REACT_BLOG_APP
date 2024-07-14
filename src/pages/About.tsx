@@ -1,3 +1,3 @@
 export const About: React.FC = () => {
-  return <div>About</div>;
+  return <section className="About"></section>;
 };

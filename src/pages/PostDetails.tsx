@@ -1,3 +1,3 @@
 export const PostDetails: React.FC = () => {
-  return <div>PostDetails</div>;
+  return <section className="Post"></section>;
 };
