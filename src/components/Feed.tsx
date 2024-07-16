@@ -1,5 +1,21 @@
+import { PostType } from "../pages/App";
 import { Post } from "./Post";
 
-export const Feed: React.FC = () => {
-  return <Post />;
+interface Props {
+  posts: PostType[];
+}
+
+export const Feed: React.FC<Props> = ({ posts }) => {
+  return (
+    <>
+      {posts.map((post) => (
+        <Post
+          key={post.id}
+          title={post.title}
+          dateTime={post.dateTime}
+          body={post.body}
+        />
+      ))}
+    </>
+  );
 };

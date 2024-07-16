@@ -1,9 +1,28 @@
 import { Feed } from "../components/Feed";
+import { PostType } from "./App";
 
-export const Home: React.FC = () => {
+interface Props {
+  posts: PostType[];
+  isLoading: boolean;
+  postsFetchError: string | null;
+}
+
+export const Home: React.FC<Props> = ({
+  posts,
+  isLoading,
+  postsFetchError,
+}) => {
   return (
-    <section className="Home">
-      <Feed />
-    </section>
+    <main className="Home">
+      {isLoading ? <p>Loading...</p> : null}
+      {!isLoading && postsFetchError ? <p>{postsFetchError}</p> : null}
+      {!isLoading && !postsFetchError ? (
+        posts.length ? (
+          <Feed posts={posts} />
+        ) : (
+          <p>No posts to display.</p>
+        )
+      ) : null}
+    </main>
   );
 };
