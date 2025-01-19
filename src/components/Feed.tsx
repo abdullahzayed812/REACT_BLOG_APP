@@ -9,12 +9,10 @@ export const Feed: React.FC<Props> = ({ posts }) => {
   return (
     <>
       {posts.map((post) => (
-        <Post
-          key={post.id}
-          title={post.title}
-          dateTime={post.dateTime}
-          body={post.body}
-        />
+        <>
+          <Post key={post.id} title={post.title} datetime={post.datetime} body={post.body} />
+          <hr className="line-terminator" />
+        </>
       ))}
     </>
   );

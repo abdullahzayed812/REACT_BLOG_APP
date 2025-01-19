@@ -1,11 +1,23 @@
+import { Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 
-export const NavigationBar: React.FC = () => {
+interface NavigationBarProps {
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
+}
+
+export const NavigationBar: React.FC<NavigationBarProps> = ({ search, setSearch }) => {
   return (
     <nav className="NavigationBar">
       <form className="searchForm">
         <label htmlFor="search">Search Posts</label>
-        <input id="search" type="text" placeholder="Search Posts" />
+        <input
+          id="search"
+          type="text"
+          placeholder="Search Posts"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <ul>
           <li>
             <Link to="/">Home</Link>
