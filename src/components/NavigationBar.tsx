@@ -8,7 +8,7 @@ interface NavigationBarProps {
 
 export const NavigationBar: React.FC<NavigationBarProps> = ({ search, setSearch }) => {
   return (
-    <nav className="NavigationBar">
+    <nav className="Nav">
       <form className="searchForm">
         <label htmlFor="search">Search Posts</label>
         <input

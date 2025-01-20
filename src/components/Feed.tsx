@@ -10,8 +10,7 @@ export const Feed: React.FC<Props> = ({ posts }) => {
     <>
       {posts.map((post) => (
         <>
-          <Post key={post.id} title={post.title} datetime={post.datetime} body={post.body} />
-          <hr className="line-terminator" />
+          <Post key={post.id} post={post} />
         </>
       ))}
     </>

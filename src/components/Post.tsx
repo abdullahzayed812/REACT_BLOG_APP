@@ -1,11 +1,18 @@
+import { Link } from "react-router-dom";
 import { PostType } from "../pages/App";
 
-export const Post: React.FC<Pick<PostType, "title" | "datetime" | "body">> = ({ title, datetime, body }) => {
+interface PostProps {
+  post: PostType;
+}
+
+export const Post: React.FC<PostProps> = ({ post }) => {
   return (
-    <article>
-      <h3 className="post-title">{title}</h3>
-      <p className="post-datetime">{datetime}</p>
-      <p className="post-body">{body}</p>
+    <article className="post">
+      <Link to={`/post/${post.id}`}>
+        <h2>{post.title}</h2>
+        <p className="postDate">{post.datetime}</p>
+      </Link>
+      <p className="postBody">{post.body.length <= 25 ? post.body : `${post.body.slice(0, 25)}...`}</p>
     </article>
   );
 };
