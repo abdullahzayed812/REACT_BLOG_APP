@@ -1,12 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
+import { useDataContext } from "../context/DataContext";
 
-interface NavigationBarProps {
-  search: string;
-  setSearch: Dispatch<SetStateAction<string>>;
-}
+export const NavigationBar: React.FC = () => {
+  const { search, setSearch } = useDataContext();
 
-export const NavigationBar: React.FC<NavigationBarProps> = ({ search, setSearch }) => {
   return (
     <nav className="Nav">
       <form className="searchForm">

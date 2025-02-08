@@ -1,28 +1,13 @@
 import { Feed } from "../components/Feed";
-import { PostType } from "./App";
+import { useDataContext } from "../context/DataContext";
 
-interface Props {
-  posts: PostType[];
-  isLoading: boolean;
-  postsFetchError: string | null;
-}
-
-export const Home: React.FC<Props> = ({
-  posts,
-  isLoading,
-  postsFetchError,
-}) => {
+export const Home: React.FC = () => {
+  const { isLoading, fetchError, posts } = useDataContext();
   return (
     <main className="Home">
       {isLoading ? <p>Loading...</p> : null}
-      {!isLoading && postsFetchError ? <p>{postsFetchError}</p> : null}
-      {!isLoading && !postsFetchError ? (
-        posts.length ? (
-          <Feed posts={posts} />
-        ) : (
-          <p>No posts to display.</p>
-        )
-      ) : null}
+      {!isLoading && fetchError ? <p>{fetchError}</p> : null}
+      {!isLoading && !fetchError ? posts.length ? <Feed posts={posts} /> : <p>No posts to display.</p> : null}
     </main>
   );
 };

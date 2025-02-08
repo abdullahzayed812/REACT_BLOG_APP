@@ -1,24 +1,10 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { PostType } from "./App";
+import { useDataContext } from "../context/DataContext";
+import { useEffect } from "react";
 
-interface EditPostProps {
-  posts: PostType[];
-  handleEdit: (id: number | undefined) => Promise<void>;
-  editBody: string;
-  setEditBody: Dispatch<SetStateAction<string>>;
-  editTitle: string;
-  setEditTitle: Dispatch<SetStateAction<string>>;
-}
+export const EditPost: React.FC = () => {
+  const { posts, setEditTitle, setEditBody, editTitle, editBody, handleEdit } = useDataContext();
 
-export const EditPost: React.FC<EditPostProps> = ({
-  posts,
-  handleEdit,
-  editBody,
-  setEditBody,
-  editTitle,
-  setEditTitle,
-}) => {
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
 

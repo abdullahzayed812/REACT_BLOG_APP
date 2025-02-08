@@ -1,8 +1,8 @@
-interface HeaderProps {
-  width: number | undefined;
-}
+import { useDataContext } from "../context/DataContext";
 
-export const Header: React.FC<HeaderProps> = ({ width }) => {
+export const Header: React.FC = () => {
+  const { width } = useDataContext();
+
   return (
     <header className="Header">
       <h1>React Js Blog</h1>

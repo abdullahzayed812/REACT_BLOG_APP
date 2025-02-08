@@ -1,14 +1,8 @@
-import { Dispatch, FormEvent, SetStateAction } from "react";
+import { useDataContext } from "../context/DataContext";
 
-interface NewPostProps {
-  handleSubmit: (e: FormEvent) => void;
-  postTitle: string;
-  setPostTitle: Dispatch<SetStateAction<string>>;
-  postBody: string;
-  setPostBody: Dispatch<SetStateAction<string>>;
-}
+export const NewPost: React.FC = () => {
+  const { handleSubmit, postTitle, setPostTitle, postBody, setPostBody } = useDataContext();
 
-export const NewPost: React.FC<NewPostProps> = ({ handleSubmit, postTitle, setPostTitle, postBody, setPostBody }) => {
   return (
     <main className="NewPost">
       <h2>New Post</h2>

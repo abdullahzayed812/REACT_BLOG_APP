@@ -1,12 +1,9 @@
 import { useParams, Link } from "react-router-dom";
-import { PostType } from "./App";
+import { useDataContext } from "../context/DataContext";
 
-interface PostDetailsProps {
-  posts: PostType[];
-  handleDelete: (id: number) => Promise<void>;
-}
+export const PostDetails: React.FC = () => {
+  const { posts, handleDelete } = useDataContext();
 
-export const PostDetails: React.FC<PostDetailsProps> = ({ posts, handleDelete }) => {
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
   return (
